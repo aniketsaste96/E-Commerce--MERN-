@@ -1,11 +1,13 @@
 const express = require("express");
 const app = express();
+const cookieParser = require("cookie-parser");
 
-const errorMiddleware = require("./middleware/error")
+const errorMiddleware = require("./middleware/error");
 
 //built in middleware function
 //It parses incoming JSON requests and puts the parsed data in req. body.
-app.use(express.json())
+app.use(express.json());
+app.use(cookieParser());
 
 
 

@@ -1,3 +1,5 @@
+//token creation and saving in cookie
+
 const sendToken = (user, statusCode, res) => {
     const token = user.getJWTToken();
 
@@ -16,3 +18,5 @@ const sendToken = (user, statusCode, res) => {
     })
 
 }
+
+module.exports = sendToken;
