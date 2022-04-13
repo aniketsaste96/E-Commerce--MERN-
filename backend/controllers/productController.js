@@ -72,4 +72,24 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
     res.status(200).json({ success: true, message: product });
 })
 
-//next is callback funtion
+//create new review or update the review
+
+exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
+
+    const { rating, comment, productId } = req.body;
+    const review = {
+        user: req.user._id,
+        name: req.user.name,
+        rating: Number(rating),
+        comment
+    }
+
+    const product = await Product.findById(productId);
+
+    if (isReviewed) {
+
+    } else {
+
+    }
+
+});
