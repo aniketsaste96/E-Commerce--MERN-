@@ -3,7 +3,7 @@ const catchAsyncErrors = require("../middleware/catchAsyncErrors");
 const User = require("../models/userModel");
 const sendToken = require('../utils/jwttoken');
 const sendEmail = require('../utils/sendEmail');
-
+const crypto = require("crypto");
 // Register a User
 exports.registerUser = catchAsyncErrors(async (req, res, next) => {
 
@@ -108,6 +108,9 @@ exports.forgotPassword = catchAsyncErrors(async (req, res, next) => {
 });
 
 
+
+
+
 // Reset Password
 exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
     // creating token hash
@@ -123,7 +126,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
 
     if (!user) {
         return next(
-            new ErrorHander(
+            new ErrorHandler(
                 "Reset Password Token is invalid or has been expired",
                 400
             )
@@ -131,7 +134,7 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
     }
 
     if (req.body.password !== req.body.confirmPassword) {
-        return next(new ErrorHander("Password does not password", 400));
+        return next(new ErrorHandler("Password does not password", 400));
     }
 
     user.password = req.body.password;
@@ -143,6 +146,12 @@ exports.resetPassword = catchAsyncErrors(async (req, res, next) => {
     sendToken(user, 200, res);
 });
 
+
+
+
+
+
+
 // Get User Detail
 exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.user.id);
@@ -153,6 +162,11 @@ exports.getUserDetails = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
 // update User password
 exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.user.id).select("+password");
@@ -160,11 +174,11 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
     const isPasswordMatched = await user.comparePassword(req.body.oldPassword);
 
     if (!isPasswordMatched) {
-        return next(new ErrorHander("Old password is incorrect", 400));
+        return next(new ErrorHandler("Old password is incorrect", 400));
     }
 
     if (req.body.newPassword !== req.body.confirmPassword) {
-        return next(new ErrorHander("password does not match", 400));
+        return next(new ErrorHandler("password does not match", 400));
     }
 
     user.password = req.body.newPassword;
@@ -173,6 +187,14 @@ exports.updatePassword = catchAsyncErrors(async (req, res, next) => {
 
     sendToken(user, 200, res);
 });
+
+
+
+
+
+
+
+
 
 // update User Profile
 exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
@@ -211,6 +233,17 @@ exports.updateProfile = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
 // Get all users(admin)
 exports.getAllUser = catchAsyncErrors(async (req, res, next) => {
     const users = await User.find();
@@ -221,13 +254,24 @@ exports.getAllUser = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
 // Get single user (admin)
 exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.params.id);
 
     if (!user) {
         return next(
-            new ErrorHander(`User does not exist with Id: ${req.params.id}`)
+            new ErrorHandler(`User does not exist with Id: ${req.params.id}`)
         );
     }
 
@@ -236,6 +280,17 @@ exports.getSingleUser = catchAsyncErrors(async (req, res, next) => {
         user,
     });
 });
+
+
+
+
+
+
+
+
+
+
+
 
 // update User Role -- Admin
 exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
@@ -256,13 +311,24 @@ exports.updateUserRole = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
 // Delete User --Admin
 exports.deleteUser = catchAsyncErrors(async (req, res, next) => {
     const user = await User.findById(req.params.id);
 
     if (!user) {
         return next(
-            new ErrorHander(`User does not exist with Id: ${req.params.id}`, 400)
+            new ErrorHandler(`User does not exist with Id: ${req.params.id}`, 400)
         );
     }
 
