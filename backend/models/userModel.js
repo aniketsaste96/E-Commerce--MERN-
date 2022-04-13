@@ -46,27 +46,27 @@ const userSchema = new mongoose.Schema({
     resetPasswordToken: String,
     resetPasswordExpire: Date,
 });
+//we cannot use this in arrow function
+userSchema.pre("save", async function (next) {
+    if (!this.isModified("password")) {
+        next();
+    }
 
-// userSchema.pre("save", async function (next) {
-//     if (!this.isModified("password")) {
-//         next();
-//     }
+    this.password = await bcrypt.hash(this.password, 10);
+});
 
-//     this.password = await bcrypt.hash(this.password, 10);
-// });
+//  JWT TOKEN
+userSchema.methods.getJWTToken = function () {
+    return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
+        expiresIn: process.env.JWT_EXPIRE,
+    });
+};
 
-// // JWT TOKEN
-// userSchema.methods.getJWTToken = function () {
-//     return jwt.sign({ id: this._id }, process.env.JWT_SECRET, {
-//         expiresIn: process.env.JWT_EXPIRE,
-//     });
-// };
+// Compare Password
 
-// // Compare Password
-
-// userSchema.methods.comparePassword = async function (password) {
-//     return await bcrypt.compare(password, this.password);
-// };
+userSchema.methods.comparePassword = async function (password) {
+    return await bcrypt.compare(password, this.password);
+};
 
 // // Generating Password Reset Token
 // userSchema.methods.getResetPasswordToken = function () {
