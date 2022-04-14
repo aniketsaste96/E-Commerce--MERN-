@@ -2,7 +2,7 @@ import { ALL_PRODUCT_REQUEST, ALL_PRODUCT_SUCCESS, ALL_PRODUCT_FAIL, CLEAR_ERROR
 
 import axios from "axios";
 
-export const getPrdouct = () => async (dispatch) => {
+export const getProduct = () => async (dispatch) => {
     try {
         dispatch({
             type: ALL_PRODUCT_REQUEST
