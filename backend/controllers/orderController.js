@@ -33,6 +33,17 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
+
+
+
+
+
 // get Single Order
 exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id).populate(
@@ -50,6 +61,13 @@ exports.getSingleOrder = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
+
 // get logged in user  Orders
 exports.myOrders = catchAsyncErrors(async (req, res, next) => {
     const orders = await Order.find({ user: req.user._id });
@@ -60,12 +78,18 @@ exports.myOrders = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
 // get all Orders -- Admin
 exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
     const orders = await Order.find();
 
     let totalAmount = 0;
-
+    //TO SHOW TO ADMIN ON DASHBOARD
     orders.forEach((order) => {
         totalAmount += order.totalPrice;
     });
@@ -76,6 +100,16 @@ exports.getAllOrders = catchAsyncErrors(async (req, res, next) => {
         orders,
     });
 });
+
+
+
+
+
+
+
+
+
+
 
 // update Order Status -- Admin
 exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
@@ -106,6 +140,14 @@ exports.updateOrder = catchAsyncErrors(async (req, res, next) => {
     });
 });
 
+
+
+
+
+
+
+
+
 async function updateStock(id, quantity) {
     const product = await Product.findById(id);
 
@@ -114,7 +156,23 @@ async function updateStock(id, quantity) {
     await product.save({ validateBeforeSave: false });
 }
 
-// delete Order -- Admin
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// delete Order -- admin
 exports.deleteOrder = catchAsyncErrors(async (req, res, next) => {
     const order = await Order.findById(req.params.id);
 
