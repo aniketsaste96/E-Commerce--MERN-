@@ -3,6 +3,8 @@ import "./home.css";
 import { CgMouse } from "react-icons/cg";
 import Product from "./Product";
 import MetaData from "../layout/MetaData";
+import { getProduct } from "../../actions/productAction";
+import { useDispatch, useSelector } from "react-redux";
 const product = {
   name: "Tshirt",
   price: "3000",
