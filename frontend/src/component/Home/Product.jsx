@@ -6,18 +6,18 @@ const Product = ({ product }) => {
     edit: false,
     color: "rgba(20,20,20,0.1)",
     activeColor: "tomato",
-    value: 2.5,
+    value: product.ratings,
     isHalf: true,
     size: window.innerWidth < 600 ? 20 : 25,
   };
 
   return (
-    <Link className="productCard" to={product._id}>
-      <img src={product.images} alt={product.name} />
+    <Link className="productCard" to={`/product/${product._id}`}>
+      <img src={product?.images[0]?.url} alt={product.name} />
       <p>{product.name}</p>
       <div>
         <ReactStars {...options} />
-        <span>(256 Reviews)</span>
+        <span>({product.numOfReviews} Reviews)</span>
       </div>
 
       <span>₹ {product.price}</span>
