@@ -23,10 +23,10 @@ exports.createProduct = catchAsyncErrors(async (req, res, next) => {
 exports.getAllProducts = async (req, res, next) => {
     // return next(new ErrorHandler("This is my temo error", 500))
     const resultPerPage = 8;
-    const productCount = await Product.countDocuments();
+    const productsCount = await Product.countDocuments();
     const apiFeature = new ApiFeatures(Product.find(), req.query).search().filter().pagination(resultPerPage)
     const products = await apiFeature.query;
-    res.status(200).json({ success: true, products, productCount });
+    res.status(200).json({ success: true, products, productsCount });
 }
 
 
@@ -60,7 +60,7 @@ exports.deleteProduct = catchAsyncErrors(async (req, res, next) => {
 });
 
 
-//get Single Product
+//get product details
 
 exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
     const product = await Product.findById(req.params.id);
@@ -70,8 +70,14 @@ exports.getProductDetails = catchAsyncErrors(async (req, res, next) => {
         )
     }
     //if found
-    res.status(200).json({ success: true, message: product });
+    res.status(200).json({ success: true, product });
 })
+
+
+
+
+
+
 
 //create new review or update the review
 exports.createProductReview = catchAsyncErrors(async (req, res, next) => {
