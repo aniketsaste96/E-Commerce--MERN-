@@ -13,10 +13,13 @@ const options = {
     link2Text: "Products",
     link3Text: "Contact",
     link4Text: "About",
+
+
     link1Url: "/",
     link2Url: "/products",
     link3Url: "/contact",
     link4Url: "/about",
+
     link1Size: "1.3vmax",
     link1Color: "rgba(35, 35, 35,0.8)",
     nav1justifyContent: "flex-end",
@@ -26,7 +29,7 @@ const options = {
     link1ColorHover: "#eb4034",
     link1Margin: "1vmax",
     profileIconUrl: "/login",
-    profileIconColor: "black",
+    profileIconColor: "rgba(35, 35, 35,0.8)",
     searchIconColor: "rgba(35, 35, 35,0.8)",
     cartIconColor: "rgba(35, 35, 35,0.8)",
     profileIconColorHover: "#eb4034",
