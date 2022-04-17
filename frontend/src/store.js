@@ -2,6 +2,7 @@ import { createStore, combineReducers, applyMiddleware } from "redux";
 import thunk from "redux-thunk";
 import { composeWithDevTools } from "redux-devtools-extension";
 import { productDetailsReducer, productsReducer } from "./reducers/productReducer";
+import { userReducer } from "./reducers/userReducer";
 //chrome extension
 
 //reducers
@@ -11,7 +12,8 @@ import { productDetailsReducer, productsReducer } from "./reducers/productReduce
 const reducer = combineReducers({
     //comming from reducer
     products: productsReducer,
-    productDetails: productDetailsReducer
+    productDetails: productDetailsReducer,
+    user: userReducer
 });
 
 let initialState = {};
