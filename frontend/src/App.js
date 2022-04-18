@@ -15,6 +15,7 @@ import store from "./store"
 import { loadUser } from "./actions/userAction"
 import UserOptions from "./component/layout/Header/UserOptions"
 import { useSelector } from "react-redux";
+import Profile from "./component/User/Profile"
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
   React.useEffect(() => {
@@ -46,6 +47,9 @@ function App() {
       </Route>
       <Route exact path="/login">
         <LoginSignUp />
+      </Route>
+      <Route exact path="/account">
+        <Profile />
       </Route>
 
       <Footer />
