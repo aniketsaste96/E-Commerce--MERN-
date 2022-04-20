@@ -24,7 +24,7 @@
 }
 .login_signUp_toggle > p {
   color: rgba(0, 0, 0, 0.678);
-  font: 300 1vmax "Roboto";
+  font: 300 1vmax "Poppins";
   transition: all 0.5s;
   cursor: pointer;
   display: grid;
@@ -32,11 +32,11 @@
   width: 100%;
 }
 .login_signUp_toggle > p:hover {
-  color: tomato;
+  color: crimson;
 }
 
 .LoginSignUpBox > div > button {
-  background-color: tomato;
+  background-color: crimson;
   height: 3px;
   width: 50%;
   border: none;
@@ -127,9 +127,9 @@
 .loginBtn,
 .signUpBtn {
   border: none;
-  background-color: tomato;
+  background-color: crimson;
   color: white;
-  font: 300 0.9vmax "Roboto";
+  font: 300 0.9vmax "Poppins";
   width: 100%;
   padding: 0.8vmax;
   cursor: pointer;
@@ -171,7 +171,7 @@
     height: 5vmax;
   }
   .login_signUp_toggle > p {
-    font: 300 1.5vmax "Roboto";
+    font: 300 1.5vmax "Poppins";
   }
 
   .loginForm,
@@ -206,7 +206,7 @@
 
   .loginBtn,
   .signUpBtn {
-    font: 300 1.9vmax "Roboto";
+    font: 300 1.9vmax "Poppins";
     padding: 1.8vmax;
   }
 }

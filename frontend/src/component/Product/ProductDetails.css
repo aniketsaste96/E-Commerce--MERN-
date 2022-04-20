@@ -1,10 +1,12 @@
 .ProductDetails {
+  background-color: rgb(255, 255, 255);
   width: 100vw;
   max-width: 100%;
   padding: 6vmax;
   box-sizing: border-box;
   display: flex;
 }
+
 .ProductDetails > div {
   width: 100%;
   display: flex;
@@ -24,10 +26,11 @@
   width: 20vmax;
 }
 
-.detailsBlock-1 > h1 {
+.detailsBlock-1 > h2 {
   color: rgb(54, 54, 54);
-  font: 600 1.5vmax "Roboto";
+  font: 600 1.6vmax "Poppins";
 }
+
 .detailsBlock-1 > p {
   color: rgba(54, 54, 54, 0.582);
   font: 200 0.6vmax cursive;
@@ -42,20 +45,21 @@
   width: 70%;
   padding: 1vmax 0;
 }
-.detailsBlock-2 > span {
-  color: rgba(54, 54, 54, 0.582);
-  font: 200 0.6vmax cursive;
+
+.detailsBlock-2-span {
+  font: 200 0.8vmax cursive;
+  color: rgba(0, 0, 0, 0.699);
 }
 
 .detailsBlock-3 {
   width: 70%;
 }
+
 .detailsBlock-3 > h1 {
   color: rgba(17, 17, 17, 0.795);
   font: 400 1.8vmax "Franklin Gothic Medium";
   margin: 1vmax 0;
 }
-
 .detailsBlock-3-1 {
   display: flex;
   align-items: center;
@@ -69,7 +73,6 @@
   color: white;
   transition: all 0.5s;
 }
-
 .detailsBlock-3-1-1 > button:hover {
   background-color: rgba(0, 0, 0, 0.767);
 }
@@ -80,8 +83,8 @@
   width: 1vmax;
   text-align: center;
   outline: none;
-  font: 400 0.8vmax "Roboto";
-  color: rgba(0, 0, 0, 0.074);
+  font: 400 0.8vmax "Poppins";
+  color: rgba(0, 0, 0, 0.74);
 }
 
 .detailsBlock-3-1 > button:last-child {
@@ -89,8 +92,8 @@
   cursor: pointer;
   color: white;
   transition: all 0.5s;
-  background-color: tomato;
-  font: 500 0.7vmax "Roboto";
+  background-color: crimson;
+  font: 500 0.7vmax "Poppins";
   border-radius: 20px;
   padding: 0.5vmax 2vmax;
   margin: 1vmax;
@@ -98,7 +101,7 @@
 }
 
 .detailsBlock-3-1 > button:last-child:hover {
-  background-color: rgb(214, 84, 64);
+  background-color: rgb(214, 84, 61);
 }
 
 .detailsBlock-3 > p {
@@ -106,7 +109,7 @@
   border-bottom: 1px solid rgba(0, 0, 0, 0.205);
   padding: 1vmax 0;
   color: rgba(0, 0, 0, 0.651);
-  font: 400 1vmax "Roboto";
+  font: 400 1vmax "Poppins";
   margin: 1vmax 0;
 }
 
@@ -120,59 +123,73 @@
   font: 300 0.8vmax sans-serif;
 }
 
-.SubmitReview {
+.submitReview {
   border: none;
-  background-color: tomato;
-  font: 500 0.7vmax "Roboto";
+  background-color: crimson;
+  font: 500 0.7vmax "Poppins";
   border-radius: 20px;
   padding: 0.6vmax 2vmax;
-  cursor: pointer;
-  transition: all 0.5s;
   margin: 1vmax 0;
   color: white;
+  cursor: pointer;
+  transition: all 0.5s;
   outline: none;
 }
-
-.SubmitReview:hover {
-  background-color: rgb(214, 84, 64);
+.submitReview:hover {
+  background-color: rgb(197, 68, 45);
+  box-shadow: 10px 5px 5px rgb(31, 29, 29);
   transform: scale(1.1);
-  box-shadow: 10px 10px 8px #888888;
 }
 
-/* reviews */
+.submitDialog {
+  display: flex;
+  flex-direction: column;
+}
+.submitDialogTextArea {
+  border: 1px solid rgba(0, 0, 0, 0.082);
+  margin: 1vmax 0;
+  outline: none;
+  padding: 1rem;
+  font: 300 1rem "Poppins";
+}
+
 .reviewsHeading {
-  color: black;
-  font: 500 1.4vmax "Roboto";
+  color: #000000be;
+  font: 500 1.4vmax "Poppins";
   text-align: center;
   border-bottom: 1px solid rgba(0, 0, 0, 0.226);
+  padding: 1vmax;
   width: 20vmax;
   margin: auto;
   margin-bottom: 4vmax;
 }
+.reviews {
+  display: flex;
+  overflow: auto;
+}
 
 .reviewCard {
   flex: none;
+
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.226);
-  border: 1px solud rgba(56, 56, 56, 0.116);
+  border: 1px solid rgba(56, 56, 56, 0.116);
+  width: 30vmax;
   display: flex;
   flex-direction: column;
   align-items: center;
   margin: 1vmax;
   padding: 3vmax;
-  width: 30vmax;
 }
 .reviewCard > img {
   width: 5vmax;
 }
-
 .reviewCard > p {
-  color: black;
-  font: 600 0.9vmax "Roboto";
+  color: rgba(0, 0, 0, 0.836);
+  font: 600 0.9vmax "Poppins";
 }
-
-.reviewCard > span {
+.reviewCardComment {
   color: rgba(0, 0, 0, 0.445);
-  font: 300 0.9vmax cursive;
+  font: 300 0.8vmax cursive;
 }
 
 .noReviews {
@@ -180,43 +197,89 @@
   text-align: center;
   color: rgba(0, 0, 0, 0.548);
 }
-.reviews {
-  display: flex;
-  overflow: auto;
-}
+
 @media screen and (max-width: 600px) {
   .ProductDetails {
-    display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: unset;
   }
-  .CarouselImage {
-    width: 60%;
-  }
-  .detailsBlock-1 > h1 {
-    font-size: 28px;
-    align-items: center;
-    padding: 5px;
-  }
+
   .ProductDetails > div:last-child {
     align-items: center;
   }
+
+  .detailsBlock-1 > h2 {
+    font-size: 2.8vmax;
+    text-align: center;
+  }
+
+  .detailsBlock-1 > p {
+    text-align: center;
+    font-size: 1vmax;
+  }
+
   .detailsBlock-2 {
     justify-content: center;
   }
-  .detailsBlock-3-1 {
-    justify-content: center;
+  .detailsBlock-2 > span {
+    font-size: 1.5vmax;
   }
+
   .detailsBlock-3 > h1 {
+    font: 700 3vmax "Franklin Gothic Medium";
     text-align: center;
   }
-  .detailsBlock-3 > p {
-    text-align: center;
-  }
+
   .detailsBlock-3-1 {
-    display: flex;
     flex-direction: column;
+  }
+
+  .detailsBlock-3-1-1 {
+    padding: 2vmax 0;
+  }
+  .detailsBlock-3-1-1 > button {
+    padding: 1.2vmax;
+    width: 4vmax;
+  }
+
+  .detailsBlock-3-1-1 > input {
+    padding: 1.5vmax;
+    width: 3vmax;
+    font: 400 1.8vmax "Poppins";
+  }
+
+  .detailsBlock-3-1 > button:last-child {
+    font: 500 1.7vmax "Poppins";
+    padding: 1.5vmax;
+    width: 20vmax;
+    margin: 3vmax 0;
+  }
+
+  .detailsBlock-3 > p {
+    padding: 2.5vmax 0;
+    text-align: center;
+    font: 400 2vmax "Poppins";
+  }
+
+  .detailsBlock-4 {
+    font: 500 2.5vmax sans-serif;
+  }
+
+  .detailsBlock-4 > p {
+    font: 300 1.8vmax sans-serif;
+  }
+
+  .submitReview {
+    font: 500 1.7vmax "Poppins";
+    padding: 1.5vmax;
+    width: 20vmax;
+    margin: 3vmax 0;
+  }
+
+  .reviewCard > p {
+    font: 600 3vw "Poppins";
+  }
+  .reviewCardComment {
+    font: 300 5vw cursive;
   }
 }
